@@ -13,6 +13,25 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
         return Math.round( (Math.random() * (max - min) - min) )
       }
 
+      function testIndex(id){
+        //console.log(id);
+        switch(id){
+          case 1 : return "le DIY, sa cabane à la montagne et beaucoup (trop) sa soeur"
+          case 2 : return "C-3PO hobbies"
+          case 3 : return "C-3PO hobbies"
+          case 4 : return "C-3PO hobbies"
+          case 5 : return "C-3PO hobbies"
+          case 6 : return "C-3PO hobbies"
+          case 7 : return "C-3PO hobbies"
+          case 8 : return "C-3PO hobbies"
+          case 9 : return "C-3PO hobbies"
+          case 10 : return "C-3PO hobbies"
+          case 11 : return "C-3PO hobbies"
+          case 12 : return "C-3PO hobbies"
+          default: return "Rien"
+        }
+      }
+
       function whatIsMyAge(born, died) {
 
         function CheckBorn(test){
@@ -30,39 +49,32 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
           else
             return randomNum(0, 75)
         }
-
-        const bornOk = CheckBorn(born)
-        const diedOk = Checkdied(died)
-
-        console.log(`je suis né en ${bornOk} et mort en ${diedOk}, j'ai donc ${(diedOk-bornOk)} ans`)
+        const age = Math.abs( Checkdied(died) - CheckBorn(born) )
+        //console.log(`je suis né en ${CheckBorn(born)} et mort en ${Checkdied(died)}, j'ai donc ${Math.abs(Checkdied(died) - CheckBorn(born))} ans`)
+        if (age === 1) return age+ " an"
+        else return age +" ans"
       }
-
-      whatIsMyAge(charactType.born, charactType.died)
-
       return `
-      <div class="project js-item" tabindex="0">
-        <img src="${charactType.image}" alt="" class="project__image">
-        <h2 class="project__name">${charactType.name}</h2>
-        <div class="project__description">
-          ${charactType.species ? charactType.species : 'unknown'}
+        <div class="project js-item" tabindex="0">
+          <img src="${charactType.image}" alt="" class="project__image">
+          <h2 class="project__name">${charactType.name} </h2>
+          <div class="project__description">
+            <span class="firstLEtter">${charactType.species ? charactType.species : 'unknown'}</span>
+          </div>
+          <div class="project__body js-body">
+            <h2>Origin : <span class="firstLEtter">${charactType.homeworld ? charactType.homeworld : 'unknown'}</span></h2>
+            <p>
+              Originaire de <span class="firstLEtter">${charactType.homeworld ? charactType.homeworld : 'unknown'}</span>
+              et agé de ${whatIsMyAge(charactType.born, charactType.died)}, il aime ${testIndex(charactType.id)} !
+              Lorem ipsum dolor sit, consectetur adipisicing elit. Accusantium consequatur, consequuntur, dicta eius
+              facilis ipsa ipsum itaque magnam molestias mollitia nemo nihil provident quod saepe sed temporibus ut veniam
+              voluptates!
+            </p>
+            <p>
+              <a target="_blank" href="${charactType.wiki}">En savoir plus</a>
+            </p>
+          </div>
         </div>
-        <div class="project__body js-body">
-          <h2>Origine : <span class="firstLEtter">${charactType.homeworld ? charactType.homeworld : 'unknown'}</span></h2>
-          <p>
-            Lorem ipsum dolor sit, consectetur adipisicing elit. Accusantium consequatur, consequuntur, dicta eius
-            facilis ipsa ipsum itaque magnam molestias mollitia nemo nihil provident quod saepe sed temporibus ut veniam
-            voluptates!
-          </p>
-          <p>
-            Ab architecto, atque autem blanditiis culpa distinctio ea eius harum, hic laudantium maiores possimus, quia
-            repellat sunt voluptatum? Aperiam doloremque dolorum facilis ipsum iusto laborum maiores nisi odit officia
-            repellendus.
-          </p>
-          <p>
-            <a target="_blank" href="${charactType.wiki}">En savoir plus</a>
-          </p>
-        </div>
-      </div>
       `
     }
 
@@ -197,4 +209,4 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
     new Portfolio('#js-portfolio')
     new PortfolioFlex('#js-portfolio-flex')
 
-  })
+  }) //end of fetch method

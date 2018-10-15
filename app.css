@@ -3,17 +3,21 @@
 }
 
 body {
-  color: #5a5a5a;
+  color: #66717E;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 .container {
   max-width: 1000px;
   padding: 0 20px;
   margin: 0 auto;
+  background-color: #383B53;
 }
-
+.container h1 {
+  text-align: center;
+}
 .portfolio {
   display: grid;
   grid-template-columns: 1fr;
