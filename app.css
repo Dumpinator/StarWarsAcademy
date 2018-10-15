@@ -19,7 +19,6 @@ body {
   grid-template-columns: 1fr;
   grid-column-gap: 20px;
   grid-auto-flow: row dense;
-  counter-reset: portfolio;
 }
 
 .project {
@@ -31,17 +30,16 @@ body {
 
 .project__image {
   width: 100%;
-  height: auto;
+  height: 350px;
+}
+.firstLEtter {
+  text-transform: capitalize;
 }
 
 h2 {
   padding: 0;
   color: #000;
   margin: 0 0 5px;
-}
-
-.project__name::after {
-  content: counter(portfolio)
 }
 
 .project__body {
