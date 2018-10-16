@@ -28,7 +28,7 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
           case 10 : return "C-3PO hobbies"
           case 11 : return "C-3PO hobbies"
           case 12 : return "C-3PO hobbies"
-          default: return "Rien"
+          default: return "rien de bien marrant pour le moment (coming soon)"
         }
       }
 
@@ -57,9 +57,11 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
       return `
         <div class="project js-item" tabindex="0">
           <img src="${charactType.image}" alt="" class="project__image">
-          <h2 class="project__name">${charactType.name} </h2>
+          <div class="project__bloc">
+          <h2 class="project__name">${charactType.name}</h2>
           <div class="project__description">
             <span class="firstLEtter">${charactType.species ? charactType.species : 'unknown'}</span>
+          </div>
           </div>
           <div class="project__body js-body">
             <h2>Origin : <span class="firstLEtter">${charactType.homeworld ? charactType.homeworld : 'unknown'}</span></h2>

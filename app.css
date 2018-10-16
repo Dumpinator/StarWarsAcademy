@@ -7,13 +7,19 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
 }
 
 .container {
   max-width: 1000px;
   padding: 0 20px;
   margin: 0 auto;
-  background-color: #383B53;
+  background-color: #151515;
 }
 .container h1 {
   text-align: center;
@@ -34,16 +40,31 @@ body {
 
 .project__image {
   width: 100%;
-  height: 350px;
+  height: 300px;
+  border-radius: 15px 15px 0 0;
+  border-bottom: 4px solid #9e4f60;
+  background-color: black;
+}
+.project__bloc {
+  background-color: #282727;
+  border-radius: 0 0 15px 15px;
+  height: 80px;
+}
+.project__bloc h2 {
+  margin-top: -4px;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #ddd;
+}
+.project__description {
+  padding: 10px 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  color: #9e4f60;
 }
 .firstLEtter {
   text-transform: capitalize;
-}
-
-h2 {
-  padding: 0;
-  color: #000;
-  margin: 0 0 5px;
 }
 
 .project__body {
