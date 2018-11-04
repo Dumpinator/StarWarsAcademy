@@ -1,11 +1,9 @@
-
-
 fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
   .then(function(response) {
     return response.json();
   })
   .then(function(myJson) {
-    console.log(myJson);
+    //console.log(myJson);
 
     const createCharactTemplate = charactType => {
 
@@ -82,6 +80,42 @@ fetch('https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json')
 
     const divContainer = document.getElementById('js-portfolio-flex')
     divContainer.innerHTML = myJson.map(createCharactTemplate).join("")
+
+    const selectSpecies = event => {
+      const speciesTag = event.target.textContent.toLowerCase()
+      const filteredSpecies = myJson
+        .filter( element => {
+          if (element.species === speciesTag){
+            return true
+          }
+          else {
+            if (speciesTag === "other"){
+              if (element.species !== "human" && element.species !== "droid")
+              return true
+            }
+            else if (speciesTag === "all"){
+              return true
+            }
+            else
+              return false
+          }
+        })
+        .map(createCharactTemplate)
+        .join("")
+        divContainer.innerHTML = filteredSpecies
+    }
+
+    const categoryButtons = Array.from(document.getElementsByClassName('btn'))
+      .forEach(btn => {
+        btn.addEventListener('click', selectSpecies)
+      })
+
+
+
+
+
+
+
 
     class Portfolio {
 
