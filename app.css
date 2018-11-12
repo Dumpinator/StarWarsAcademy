@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'starJedi';
+  src: url('Starjedi.ttf');
+}
+
 body {
   color: #66717E;
   margin: 0;
@@ -12,6 +17,10 @@ body {
 
 h1 {
   color: #FFF;
+  padding: 20px 0 0 0;
+  margin: 0;
+  font-size: 3em;
+  font-family: 'Starjedi', 'Roboto', sans-serif;
 }
 
 h2 {
@@ -30,15 +39,24 @@ h2 {
 }
 
 .button {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin: 20px;
 }
 .button .btn {
   border-radius: 15px;
   border: 2px solid #9e4f60;
-  padding: 5px 15px;
+  padding: 5px 20px;
+  margin: 0 2px;
   background-color: #282727;
   color: #fff;
+}
+
+.button .btn:focus {
+  border: 2px solid #FFF;
+  background-color: #9e4f60;
+  outline: inherit;
 }
 
 .portfolio {
@@ -53,6 +71,7 @@ h2 {
   cursor: pointer;
   margin-bottom: 20px;
   width: 100%;
+  outline: inherit;
 }
 
 .project__image {
@@ -86,6 +105,27 @@ h2 {
 
 .project__body {
   overflow: hidden;
+  background-color: #282727;
+  border-radius: 15px;
+  margin: 0 10px 20px 10px;
+
+}
+.project__body h2 {
+  padding: 10px 0 0 0;
+  color: #ddd;
+}
+.project__body p {
+  padding: 5px 0 0 0;
+  color: #ddd;
+}
+.project__body a {
+  text-decoration: none;
+  color: #9e4f60;
+}
+.project__body p > a {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .project .project__body {
